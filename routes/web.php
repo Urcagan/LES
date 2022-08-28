@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ComplexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     //return view('welcome');
-   return('First route');
+    return('First route');
 });
+
+Route::get('/complex', [ComplexController::class,'index']);
+
+Route::get('/complexes/create', [ComplexController::class,'create']);
+
+
+
+
