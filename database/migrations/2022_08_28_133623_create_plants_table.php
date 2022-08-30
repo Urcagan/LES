@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string( 'NamePlant', 50)->unique();
             $table->string( 'Description', 120)->nullable();
             $table->foreignId('complex_id')->constrained();
+
+            $table->softDeletes();
         });
     }
 

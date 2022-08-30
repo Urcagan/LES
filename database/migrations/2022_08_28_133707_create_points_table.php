@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer( 'PVEULO');
             $table->integer('UnitID');
             $table->foreignId('units_id')->constrained();
+
+            $table->softDeletes();
         });
     }
 

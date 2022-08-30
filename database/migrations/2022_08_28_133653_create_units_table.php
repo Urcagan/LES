@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string( 'Description', 120)->nullable();
             $table->integer('PlantID');
             $table->foreignId('plants_id')->constrained();
+
+            $table->softDeletes();
         });
     }
 

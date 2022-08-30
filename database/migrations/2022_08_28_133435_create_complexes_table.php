@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('complexes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string( 'NameComplex', 50)->unique();
             $table->string( 'Description', 120)->nullable();
+            $table->string( 'NameComplex', 50)->unique();
+
+            $table->softDeletes(); // столбец отмечающий, что строка была удалена
         });
     }
 
