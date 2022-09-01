@@ -22,9 +22,11 @@ Route::get('/', function () {
     return('First route');
 });
 
-Route::get('/complex', [ComplexController::class,'index'])->name('complex.index');
+Route::get('/complexes', [ComplexController::class,'index'])->name('complexes.index');
 
-Route::get('/complex/create', [ComplexController::class,'create']);
+Route::get('/complexes/create', [ComplexController::class,'create']);
+
+Route::post('/complexes', [ComplexController::class,'store'])->name('complexes.store');
 
 Route::get('/complex/update', [ComplexController::class,'update']);
 

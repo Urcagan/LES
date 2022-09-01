@@ -6,11 +6,11 @@ use App\Models\Complex;
 use Illuminate\Http\Request;
 
 
-class ComplexController extends Controller
-{
+class ComplexController extends Controller{
+
     public function index(){
         $complexes = Complex::all();
-        return view('complexes', compact('complexes'));
+        return view('complex.index', compact('complexes'));
 
 //        var_dump('Страница вывода таблицы Complex');
 //        dump('Страница вывода таблицы Complex');
@@ -20,32 +20,11 @@ class ComplexController extends Controller
     }
 
     public function create(){
-        dump('Заполнение таблици Complexes');
-        $complexesArr = [
-            [
-                'NameComplex' => 'КТУ ГПВГ',
-                'Description'=> 'Комплекс технологических установок глубокой переработки вакуумного газоиля',
-            ],
-            [
-                'NameComplex' => 'КТУ ППН',
-                'Description'=> 'Комплекс технологических установок первичной переработки нефти',
-            ],
-            [
-                'NameComplex' => 'КТУ ПГиБ',
-                'Description'=> 'Комплекс технологических установок переработки газов и бензинов',
-            ],
-            [
-                'NameComplex' => 'КТУ КРиИБФ',
-                'Description'=> 'Комплекс технологических установок каталитического риформинга и изомеризации бензиновых фракций',
-            ]
-        ];
+        return view( 'complex.create');
+    }
 
-        foreach ($complexesArr as $item){
-            dump($item);
-            Complex::create($item);
-        }
-
-        return ('Complex create');
+    public function store(){
+        dd('bla bla');
     }
 
     public function update(){
@@ -62,4 +41,34 @@ class ComplexController extends Controller
        $complex->delete();
        dd('deleted');
     }
+
+    public function create_man(){
+    dump('Заполнение таблици Complexes');
+    $complexesArr = [
+        [
+            'NameComplex' => 'КТУ ГПВГ',
+            'Description'=> 'Комплекс технологических установок глубокой переработки вакуумного газоиля',
+        ],
+        [
+            'NameComplex' => 'КТУ ППН',
+            'Description'=> 'Комплекс технологических установок первичной переработки нефти',
+        ],
+        [
+            'NameComplex' => 'КТУ ПГиБ',
+            'Description'=> 'Комплекс технологических установок переработки газов и бензинов',
+        ],
+        [
+            'NameComplex' => 'КТУ КРиИБФ',
+            'Description'=> 'Комплекс технологических установок каталитического риформинга и изомеризации бензиновых фракций',
+        ]
+    ];
+
+    foreach ($complexesArr as $item){
+        dump($item);
+        Complex::create($item);
+    }
+
+    return ('Complex create');
+}
+
 }

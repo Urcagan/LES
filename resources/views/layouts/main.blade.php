@@ -18,7 +18,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{route('complex.index')}}">Комплексы</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('complexes.index')}}">Комплексы</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('about.index')}}">О Нас</a>
