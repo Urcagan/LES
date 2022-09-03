@@ -24,17 +24,25 @@ Route::get('/', function () {
 
 Route::get('/complexes', [ComplexController::class,'index'])->name('complexes.index');
 
-Route::get('/complexes/create', [ComplexController::class,'create']);
+Route::get('/complexes/create', [ComplexController::class,'create'])->name('complexes.create');
 
 Route::post('/complexes', [ComplexController::class,'store'])->name('complexes.store');
 
-Route::get('/complex/update', [ComplexController::class,'update']);
+Route::get('/complexes/{complex}', [ComplexController::class,'show'])->name('complexes.show');
 
-Route::get('/complex/delete', [ComplexController::class,'delete']);
+Route::get('/complexes/{complex}/edit', [ComplexController::class,'edit'])->name('complexes.edit');
+Route::patch('/complexes/{complex}', [ComplexController::class,'update'])->name('complexes.update');
+
+Route::delete('/complexes/{complex}', [ComplexController::class,'destroy'])->name('complexes.destroy');
+
+
 
 Route::get('/about', [AboutController::class,'about'])->name('about.index');
 
 Route::get('/contacts', [ContactController::class,'contacts'])->name('contact.index');
+
+
+Route::get('/complexes/create_man', [ComplexController::class,'create_man'])->name('complex_man');
 
 
 

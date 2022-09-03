@@ -4,30 +4,8 @@
 <!-- //  описываем содержммое секций для страницы -->
 @section('content') <!-- // указываем имя секции -->
     @foreach(@$complexes as $complex)
-     <div> {{ $complex->NameComplex }} -  {{ $complex->Description }}</div>
+        <div><a href="{{route('complexes.show', $complex->id)}}">{{$complex->id}}. {{ $complex->NameComplex }} -  {{ $complex->Description }}</a></div>
     @endforeach
 
-<div>
-    <table class="table table-striped table-dark">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        @foreach(@$complexes as $complex)
-        <tr>
-            <th scope="row">{{ @$complex->id  }}</th>
-            <td>{{ $complex->NameComplex }}</td>
-            <td>{{ $complex->Description }}</td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
-</div>
-
-
+    <div ><a href="{{route('complexes.create')}}" class="btn btn-success mt-3">Добавить КТУ</a></div>
 @endsection

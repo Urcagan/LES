@@ -24,15 +24,39 @@ class ComplexController extends Controller{
     }
 
     public function store(){
-        dd('bla bla');
+        $data = request()->validate([
+            'NameComplex' => 'string',
+            'Description' => 'string',
+        ]);
+        Complex::create($data);
+        return redirect()->route('complexes.index');
     }
 
-    public function update(){
-        $complex = Complex::find(4);
-        $complex->update([
-            'Description' => 'update',
+    public function show(Complex $complex)
+    {
+        return view('complex.show', compact('complex'));
+
+    }
+
+    public function edit (Complex $complex)
+    {
+        return view('complex.edit', compact('complex'));
+    }
+
+    public function update(Complex $complex){
+
+        $data = request()->validate([
+            'NameComplex' => 'string',
+            'Description' => 'string',
         ]);
-        dd($complex);
+        @$complex->update($data);
+        return redirect()->route('complexes.show', $complex->id);
+    }
+
+    public function destroy(Complex $complex)
+    {
+        $complex->delete();
+        return redirect()->route('complexes.index');
     }
 
     public function delete()
@@ -63,12 +87,11 @@ class ComplexController extends Controller{
         ]
     ];
 
-    foreach ($complexesArr as $item){
-        dump($item);
-        Complex::create($item);
+        foreach ($complexesArr as $item){
+            dump($item);
+            Complex::create($item);
+        }
+        return redirect()->route('complexes.index');
     }
-
-    return ('Complex create');
-}
 
 }
