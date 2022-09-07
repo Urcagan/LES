@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComplexController;
 use App\Http\Controllers\AboutController;
@@ -34,6 +35,15 @@ Route::get('/complexes/{complex}/edit', [ComplexController::class,'edit'])->name
 Route::patch('/complexes/{complex}', [ComplexController::class,'update'])->name('complexes.update');
 
 Route::delete('/complexes/{complex}', [ComplexController::class,'destroy'])->name('complexes.destroy');
+
+
+Route::get('/plants', [PlantController::class,'index'])->name('plants.index');
+Route::get('/plants/create', [PlantController::class,'create'])->name('plants.create');
+Route::post('/plants', [PlantController::class,'store'])->name('plants.store');
+Route::get('/plants/{plant}', [PlantController::class,'show'])->name('plants.show');
+Route::get('/plants/{plant}/edit', [PlantController::class,'edit'])->name('plants.edit');
+Route::patch('/plants/{plant}', [PlantController::class,'update'])->name('plants.update');
+Route::delete('/plants/{plant}', [PlantController::class,'destroy'])->name('plants.destroy');
 
 
 
