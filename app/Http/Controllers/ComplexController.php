@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complex;
+use App\Models\Plant;
 use Illuminate\Http\Request;
 
 
@@ -34,7 +35,12 @@ class ComplexController extends Controller{
 
     public function show(Complex $complex)
     {
-        return view('complex.show', compact('complex'));
+        $plants = $complex->plants;
+
+       //$plants = Plant::where('complex_id', $complex->id)->get();
+       // dd($plants);
+
+        return view('complex.show', compact('complex', 'plants'));
 
     }
 

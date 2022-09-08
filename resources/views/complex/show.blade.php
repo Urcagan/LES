@@ -14,4 +14,10 @@
             <input type="submit" class="btn btn-outline-dark mt-3" value="Удалить">
         </form>
     </div>
+    <div class="container">
+        <h5 class="mt-3">Установки входящие в комплекс</h5>
+        @foreach ($complex->plants as $unit)
+            <div>{{$unit->NamePlant}}</div>
+        @endforeach
+    </div>
 @endsection

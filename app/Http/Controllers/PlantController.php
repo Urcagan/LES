@@ -29,7 +29,8 @@ class PlantController extends Controller{
 
     public function show(Plant $plant)
     {
-        return view('plant.show', compact('plant'));
+        $complex = $plant->complex;
+        return view('plant.show', compact('plant', 'complex'));
 
     }
 

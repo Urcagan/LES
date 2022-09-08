@@ -14,4 +14,8 @@
             <input type="submit" class="btn btn-outline-dark mt-3" value="Удалить">
         </form>
     </div>
+    <div class="container">
+        <h5 class="mt-3">Входит в комплекс</h5>
+            <div>{{$complex->NameComplex}}</div>
+    </div>
 @endsection
