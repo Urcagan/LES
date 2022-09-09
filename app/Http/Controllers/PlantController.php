@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Complex;
 use App\Models\Plant;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PlantController extends Controller{
     }
 
     public function create(){
-        return view( 'plant.create');
+        $complexes = Complex::all();
+        return view( 'plant.create', compact('complexes'));
     }
 
     public function store(){
@@ -36,7 +38,9 @@ class PlantController extends Controller{
 
     public function edit (Plant $plant)
     {
-        return view('plant.edit', compact('plant'));
+        $complexes = Complex::all();
+
+        return view('plant.edit', compact('plant','complexes'));
     }
 
     public function update(Plant $plant){

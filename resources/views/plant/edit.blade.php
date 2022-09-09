@@ -18,8 +18,16 @@
 
         <div class="form-group">
             <label for="complex_id">Выберите комплекс</label>
-            <input type="text" name="complex_id" class="form-control" id="complex_id" placeholder="Выберете комплекс" value="{{$plant->complex_id}}">
+            <select class="form-select" id="complex_id" name="complex_id">
+                @foreach($complexes as $complex)
+                    <option
+                        {{$complex->id == $plant->complex_id ? ' selected' : ''}}
+                        value="{{$complex->id}}">{{$complex->NameComplex}}</option>
+                @endforeach
+            </select>
         </div>
+
+
         <button type="submit" class="btn btn-primary mt-3">Редактировать</button>
     </form>
 </div>
