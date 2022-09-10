@@ -22,8 +22,8 @@ class PlantController extends Controller{
     public function store(){
         $data = request()->validate([
             'NamePlant' => 'string',
-            'Description' => ['string','nullable'],
-            'complex_id' => 'numeric',
+            'Description' => 'nullable | string',
+            'complex_id' => 'required | numeric',
         ]);
         Plant::create($data);
         return redirect()->route('plants.index');

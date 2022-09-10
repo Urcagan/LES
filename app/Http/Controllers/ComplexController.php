@@ -26,8 +26,8 @@ class ComplexController extends Controller{
 
     public function store(){
         $data = request()->validate([
-            'NameComplex' => 'string',
-            'Description' => 'string',
+            'NameComplex' => 'required | string',
+            'Description' => 'nullable | string',
         ]);
         Complex::create($data);
         return redirect()->route('complexes.index');

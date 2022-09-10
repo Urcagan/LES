@@ -9,6 +9,11 @@
         <div class="form-group">
             <label for="NameComplex">Абривеатура комплекса</label>
             <input type="text" name="NameComplex" class="form-control" id="NameComplex" placeholder="Абривеатура комплекс" value="{{$complex->NameComplex}}">
+
+            @error('NameComplex')
+            <p class="text-bg-danger">Ошибка {{ $message }}</p>
+            @enderror
+
         </div>
 
         <div class="form-group">
