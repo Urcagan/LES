@@ -10,7 +10,7 @@
             <input value="{{ old('NameComplex') }}" type="text" name="NameComplex" class="form-control" id="NameComplex" placeholder="Абривеатура комплекс">
 
             @error('NameComplex')
-                <p class="text-bg-danger">Ошибка {  { $message }}</p>
+                <p class="text-bg-danger">Ошибка {{ $message }}</p>
             @enderror
 
         </div>
