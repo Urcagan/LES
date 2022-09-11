@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\OldControllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Complex;
-use App\Models\Plant;
-use Illuminate\Http\Request;
 
 
 class ComplexController extends Controller{
@@ -49,7 +48,8 @@ class ComplexController extends Controller{
         return view('complex.edit', compact('complex'));
     }
 
-    public function update(Complex $complex){
+    public function update(Complex $complex)
+    {
 
         $data = request()->validate([
             'NameComplex' => 'string',
@@ -72,7 +72,8 @@ class ComplexController extends Controller{
        dd('deleted');
     }
 
-    public function create_man(){
+    public function create_man()
+    {
     dump('Заполнение таблици Complexes');
     $complexesArr = [
         [

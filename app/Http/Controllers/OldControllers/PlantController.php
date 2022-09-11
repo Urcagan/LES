@@ -1,25 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\OldControllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Complex;
 use App\Models\Plant;
-use Illuminate\Http\Request;
 
 
 class PlantController extends Controller{
 
-    public function index(){
+    public function index()
+    {
         $plants = Plant::all();
         return view('plant.index', compact('plants'));
     }
 
-    public function create(){
+    public function create()
+    {
         $complexes = Complex::all();
         return view( 'plant.create', compact('complexes'));
     }
 
-    public function store(){
+    public function store()
+    {
         $data = request()->validate([
             'NamePlant' => 'string',
             'Description' => 'nullable | string',
@@ -43,8 +46,8 @@ class PlantController extends Controller{
         return view('plant.edit', compact('plant','complexes'));
     }
 
-    public function update(Plant $plant){
-
+    public function update(Plant $plant)
+    {
         $data = request()->validate([
             'NamePlant' => 'string',
             'Description' => 'string',
@@ -61,7 +64,8 @@ class PlantController extends Controller{
     }
 
 
-    public function create_man(){
+    public function create_man()
+    {
     dump('Заполнение таблици Complexes');
     $plantsArr = [
         [

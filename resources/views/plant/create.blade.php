@@ -7,7 +7,9 @@
         @csrf
         <div class="form-group">
             <label for="NamePlant">Абривеатура установки</label>
-            <input type="text" name="NamePlant" class="form-control" id="NamePlant" placeholder="Абривеатура установки">
+            <input
+                value="{{ old('NamePlant') }}"
+                type="text" name="NamePlant" class="form-control" id="NamePlant" placeholder="Абривеатура установки">
 
             @error('NamePlant')
             <p class="text-bg-danger">Ошибка {{ $message }}</p>
