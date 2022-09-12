@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Создаем реквест командой  php artisan make:request Complex/StoreRequest
+ */
+
 namespace App\Http\Requests\Complex;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -13,7 +17,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return true; // Обязательно меняем на true
     }
 
     /**

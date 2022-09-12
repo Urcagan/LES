@@ -13,7 +13,7 @@ class UpdateController extends Controller
     {
 
         $data = $request->validated();
-        @$complex->update($data);
+        $complex->update($data);
         return redirect()->route('complexes.show', $complex->id);
     }
 
