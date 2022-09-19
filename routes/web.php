@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
@@ -15,12 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return('First route');
+//Route::prefix('admin')->group(function () {
+//    Route::get('/users', function () {
+//        // Matches The "/admin/users" URL
+//    });
+//});
+
+
+
+Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
+    Route::get('/', 'IndexController');
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Complex'], function() {
+
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController');
+    });
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Complex'], function () {
     Route::get('/complexes', 'IndexController')->name('complexes.index');
     Route::get('/complexes/create', 'CreateController')->name('complexes.create');
     Route::post('/complexes', 'StoreController')->name('complexes.store');
@@ -30,7 +45,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Complex'], function() {
     Route::delete('/complexes/{complex}', 'DestroyController')->name('complexes.destroy');
     Route::get('/complexes/create_man', 'WriteController')->name('complex_man');
 });
-
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Plant'], function () {
@@ -46,16 +60,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Plant'], function () {
 //Route::resource('plants', PlantController::class);
 
 
+Route::get('/about', [AboutController::class, 'about'])->name('about.index');
 
-
-Route::get('/about', [AboutController::class,'about'])->name('about.index');
-
-Route::get('/contacts', [ContactController::class,'contacts'])->name('contact.index');
-
-
-
-
-
+Route::get('/contacts', [ContactController::class, 'contacts'])->name('contact.index');
 
 
 Auth::routes();

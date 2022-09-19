@@ -11,6 +11,7 @@ class IndexController extends Controller{
     public function __invoke()
     {
         $plants = Plant::all();
+
         return view('plant.index', compact('plants'));
     }
 }
