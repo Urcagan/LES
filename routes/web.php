@@ -57,3 +57,7 @@ Route::get('/contacts', [ContactController::class,'contacts'])->name('contact.in
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
