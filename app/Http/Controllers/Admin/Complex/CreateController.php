@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Complex;
+namespace App\Http\Controllers\Admin\Complex;
 
 use App\Http\Controllers\Controller;
 
@@ -9,7 +9,7 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        return view( 'complex.create');
+        return view( 'admin.complex.create');
     }
 
 }

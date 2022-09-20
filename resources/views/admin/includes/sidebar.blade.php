@@ -11,12 +11,9 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="#" class="nav-link">
-
-                    <i class="nav-icon fa-solid fa-landmark"></i>
-                    <p>
-                        Комплексы
-                    </p>
+                <a href="{{route('complex.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-globe"></i>
+                    <p>Комплексы</p>
                 </a>
             </li>
 
@@ -25,3 +22,5 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+

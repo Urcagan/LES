@@ -34,7 +34,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/', 'IndexController');
     });
     Route::group(['namespace'=>'Complex', 'prefix'=>'complex'], function () {
-        Route::get('/', 'IndexController');
+        Route::get('/', 'IndexController')->name('complex.index');
+        Route::get('/create', 'CreateController')->name('complex.create');
     });
 });
 
