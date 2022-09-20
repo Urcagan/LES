@@ -9,7 +9,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         //return view('about');
-        return 11111;
+        return  'Страница Main при входе на сайт';
     }
 
 }
