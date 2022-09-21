@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Complex;
+namespace App\Http\Controllers\Admin\Complex;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Complex\UpdateRequest;
@@ -14,7 +14,7 @@ class UpdateController extends Controller
 
         $data = $request->validated();
         $complex->update($data);
-        return redirect()->route('complexes.show', $complex->id);
+        return redirect()->route('admin.complex.index', $complex->id);
     }
 
 }

@@ -37,7 +37,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/', 'IndexController')->name('admin.complex.index');
         Route::get('/create', 'CreateController')->name('admin.complex.create');
         Route::post('/', 'StoreController')->name('admin.complex.store');
-
+        Route::get('/{complex}', 'ShowController')->name('admin.complex.show');
+        Route::get('/{complex}/edit', 'EditController')->name('admin.complex.edit');
+        Route::patch('/{complex}', 'UpdateController')->name('admin.complex.update');
 
     });
 });

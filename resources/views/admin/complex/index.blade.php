@@ -9,7 +9,8 @@
                     <h1 class="m-0 text-primary">Комплексы технологических установок</h1>
                 </div>
                 <div class="col-lg-6">
-                    <div class="float-sm-right"><a href="{{route('admin.complex.create')}}" class="btn btn-success ">Добавить КТУ</a></div>
+                    <div class="float-sm-right"><a href="{{route('admin.complex.create')}}" class="btn btn-success ">Добавить
+                            КТУ</a></div>
                 </div>
             </div>
 
@@ -33,8 +34,24 @@
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text">{{ $complex->Description }}</p>
-                                        <a href="{{route('complexes.show', $complex->id)}}"
-                                           class="btn btn-primary">Обзор</a>
+                                        <div class="d-flex justify-content-end">
+                                            <div class="btn-group  ">
+                                                <button type="button" class="btn btn-default" title="Обзор"
+                                                        data-toggle="tooltip">
+                                                    <a href="{{route('admin.complex.show', $complex->id)}}"> <i
+                                                            class="fas fa-eye"></i></a>
+                                                </button>
+                                                <button type="button" class="btn btn-default" title="Редактировать"
+                                                        data-toggle="tooltip">
+                                                    <a href="{{route('admin.complex.edit', $complex->id)}}"><i class="fas fa-edit"></i></a>
+
+                                                </button>
+                                                <button type="button" class="btn btn-default" title="Удалить"
+                                                        data-toggle="tooltip">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
