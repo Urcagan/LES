@@ -4,12 +4,12 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
-            <div class="row">
+            <div class="row ">
                 <div class="col-lg-6">
-                    <h1 class="m-0">Комплексы технологических установок</h1>
+                    <h1 class="m-0 text-primary">Комплексы технологических установок</h1>
                 </div>
                 <div class="col-lg-6">
-                    <div class="float-sm-right"><a href="{{route('complex.create')}}" class="btn btn-success ">Добавить КТУ</a></div>
+                    <div class="float-sm-right"><a href="{{route('admin.complex.create')}}" class="btn btn-success ">Добавить КТУ</a></div>
                 </div>
             </div>
 

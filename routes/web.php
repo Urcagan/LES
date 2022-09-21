@@ -34,8 +34,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/', 'IndexController');
     });
     Route::group(['namespace'=>'Complex', 'prefix'=>'complex'], function () {
-        Route::get('/', 'IndexController')->name('complex.index');
-        Route::get('/create', 'CreateController')->name('complex.create');
+        Route::get('/', 'IndexController')->name('admin.complex.index');
+        Route::get('/create', 'CreateController')->name('admin.complex.create');
+        Route::post('/', 'StoreController')->name('admin.complex.store');
+
+
     });
 });
 

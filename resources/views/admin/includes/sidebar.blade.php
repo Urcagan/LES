@@ -11,7 +11,7 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="{{route('complex.index')}}" class="nav-link">
+                <a href="{{route('admin.complex.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-globe"></i>
                     <p>Комплексы</p>
                 </a>
