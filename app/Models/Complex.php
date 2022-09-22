@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Complex extends Model
 {
     use HasFactory;
-    use SoftDeletes;    // Подключаем реализацию мягкого удаления данных из таблицы
+ //   use SoftDeletes;    // Подключаем реализацию мягкого удаления данных из таблицы
                         // Этот параметр подключается индивидуально в каждой моделе
                         // Так же в миграции таблици необходимо добавить столбец " $table->softDeletes(); "
 

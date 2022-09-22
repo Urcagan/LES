@@ -40,7 +40,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/{complex}', 'ShowController')->name('admin.complex.show');
         Route::get('/{complex}/edit', 'EditController')->name('admin.complex.edit');
         Route::patch('/{complex}', 'UpdateController')->name('admin.complex.update');
-
+        Route::delete('/{complex}', 'DestroyController')->name('admin.complex.destroy');
     });
 });
 
