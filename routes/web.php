@@ -28,11 +28,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController');
 });
 
-
+// Роуты для админки
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController');
     });
+    // Роуты для CRUD комплексов
     Route::group(['namespace'=>'Complex', 'prefix'=>'complex'], function () {
         Route::get('/', 'IndexController')->name('admin.complex.index');
         Route::get('/create', 'CreateController')->name('admin.complex.create');
@@ -42,7 +43,21 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::patch('/{complex}', 'UpdateController')->name('admin.complex.update');
         Route::delete('/{complex}', 'DestroyController')->name('admin.complex.destroy');
     });
+
+    // Роуты для админки пользователей
+    Route::group(['namespace'=>'User', 'prefix'=>'users'], function () {
+        Route::get('/', 'IndexController')->name('admin.user.index');
+        Route::get('/create', 'CreateController')->name('admin.user.create');
+        Route::post('/', 'StoreController')->name('admin.user.store');
+        Route::get('/{user}', 'ShowController')->name('admin.user.show');
+        Route::get('/{user}/edit', 'EditController')->name('admin.user.edit');
+        Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
+        Route::delete('/{user}', 'DestroyController')->name('admin.user.destroy');
+    });
+
 });
+
+
 
 Route::group(['namespace' => 'App\Http\Controllers\Complex'], function () {
     Route::get('/complexes', 'IndexController')->name('complexes.index');

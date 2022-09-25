@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Complex;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Complex\StoreRequest;
+use App\Http\Requests\Admin\Complex\StoreRequest;
 use App\Models\Complex;
 
 
@@ -13,10 +13,7 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         //Complex::firstOrCreate($data);
-        Complex::firstOrCreate([ 'NameComplex'=> $data['NameComplex']],[
-            'NameComplex'=>$data['NameComplex'],
-            'Description'=>$data['Description'],
-        ]);
+        Complex::firstOrCreate(['NameComplex' => $data['NameComplex']], $data);
         return redirect()->route('admin.complex.index');
     }
 

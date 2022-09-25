@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Complex;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Complex\UpdateRequest;
+use App\Http\Requests\Admin\Complex\UpdateRequest;
 use App\Models\Complex;
 
 

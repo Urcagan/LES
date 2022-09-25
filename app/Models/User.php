@@ -12,6 +12,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public $timestamps = false;     // Отключаем в моделе автоматическую обработку полей created_at и updated_at.
+                                    // Обязательно если в таблице данных полей нет.
+
     /**
      * The attributes that are mass assignable.
      *

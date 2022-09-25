@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Complex;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Complex\StoreRequest;
+use App\Http\Requests\Admin\Complex\StoreRequest;
 use App\Models\Complex;
 
 

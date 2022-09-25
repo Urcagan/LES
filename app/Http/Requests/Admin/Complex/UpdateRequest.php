@@ -4,7 +4,7 @@
  * Создаем реквест командой  php artisan make:request Complex/StoreRequest
  */
 
-namespace App\Http\Requests\Complex;
+namespace App\Http\Requests\Admin\Complex;
 
 use Illuminate\Foundation\Http\FormRequest;
 
