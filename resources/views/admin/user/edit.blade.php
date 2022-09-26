@@ -35,6 +35,21 @@
                         <p class="text-danger">Ошибка {{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="role">Выберите роль</label>
+                        <select name="role" class="form-control" id="role" >
+                            @foreach($roles as $id=>$role)
+                                <option value="{{$id}}" {{$id == $user->role ? ' selected' : '' }}>
+                                    {{$role}}
+                                </option>
+                            @endforeach
+                        </select>
+
+                        @error('role')
+                        <p class="text-bg-danger">Ошибка {{ $message }}</p>
+                        @enderror
+
+                    </div>
                     <button type="submit" class="btn btn-primary mt-3">Записать</button>
                 </form>
             </div>

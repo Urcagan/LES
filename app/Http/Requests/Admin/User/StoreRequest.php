@@ -31,6 +31,7 @@ class StoreRequest extends FormRequest
             'name' => 'required | string',
             'email' => 'nullable | string | email | unique:users',
             'password' => 'nullable | string',
+            'role' => 'required | integer',
         ];
     }
 

@@ -39,10 +39,29 @@
                     <div class="form-group">
                         <label for="password">Ваша пароль</label>
                         <input type="text" class="form-control" name="password"
-                               id="email" placeholder="Пароль">
+                               id="password" placeholder="Пароль">
                         @error('password')
                         <p class="text-danger">Ошибка {{ $message }}</p>
                         @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Выберите роль</label>
+
+                            <select name="role" class="form-control" id="role" >
+                                @foreach($roles as $id=>$role)
+                                    <option value="{{$id}}"
+                                        {{$id == old('role') ? ' selected' : '' }}>
+                                        {{$role}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <p class="text-bg-danger">Ошибка {{ $message }}</p>
+                            @enderror
+
+
+
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Создать</button>
                 </form>

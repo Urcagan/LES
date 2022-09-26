@@ -41,8 +41,8 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed text-nowrap">
+                        <div class="card-body table-responsive p-0" >
+                            <table class="table table-head-fixed text-nowrap" >
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -57,18 +57,18 @@
                                         <td>{{$user->name}}</td>
                                         <td>
                                             <div class="btn-group  ">
-                                                <button type="button" class="btn btn-default" title="Обзор"
+                                                <button type="button" class="btn btn-default " title="Обзор"
                                                         data-toggle="tooltip">
                                                     <a href="{{route('admin.user.show', $user->id)}}"> <i
                                                             class="fas fa-eye"></i></a>
                                                 </button>
-                                                <button type="button" class="btn btn-default" title="Редактировать"
+                                                <button type="button" class="btn  btn-outline-primary" title="Редактировать"
                                                         data-toggle="tooltip">
                                                     <a href="{{route('admin.user.edit', $user->id)}}"><i
                                                             class="fas fa-edit"></i></a>
                                                 </button>
                                                 <!-- Малое модальное окно для удаления-->
-                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"
+                                                <button type="button" class=" btn  btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
                                                         title="Удалить" data-toggle="tooltip">
                                                     <i class="fas fa-trash-alt "></i>
                                                 </button>

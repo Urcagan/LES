@@ -12,8 +12,20 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROLE_GUEST = 0;
+    const ROLE_ADMIN = 1;
+
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_GUEST => 'Гость',
+            self::ROLE_ADMIN => 'Администратор',
+        ];
+    }
+
+
     public $timestamps = false;     // Отключаем в моделе автоматическую обработку полей created_at и updated_at.
-                                    // Обязательно если в таблице данных полей нет.
+    // Обязательно если в таблице данных полей нет.
 
     /**
      * The attributes that are mass assignable.
