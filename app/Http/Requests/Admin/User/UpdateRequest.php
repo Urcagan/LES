@@ -27,9 +27,10 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'name' => 'required | string',
-            'email' => 'nullable | string | email | unique:users',
+            'email' => 'required | string | email | unique:users,email,' . $this->user->id,
             'role' => 'required | integer',
         ];
     }

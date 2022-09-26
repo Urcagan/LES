@@ -12,8 +12,9 @@ class IndexController extends Controller
     {
 
         $users = User::all();
-       // return view('complex.index', compact('complexes'));
-        return view('admin.user.index', compact('users'));
+        $roles = User::getRoles();
+
+        return view('admin.user.index', compact('users', 'roles'));
     }
 
 

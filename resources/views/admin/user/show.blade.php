@@ -16,7 +16,7 @@
 
                             <!-- Малое модальное окно для удаления-->
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"
-                                title="Удалить" data-toggle="tooltip">
+                                title="Удалить" >
                             <i class="fas fa-trash-alt "></i>
                         </button>
 
@@ -31,7 +31,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                       <h5>Удалить "{{ $user->name }}" ?</h5>
+                                       <h5>Удалить "{{ $user->name }} " ?</h5>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

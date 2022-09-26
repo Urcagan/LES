@@ -45,7 +45,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group w-50">
                         <label for="role">Выберите роль</label>
 
                             <select name="role" class="form-control" id="role" >

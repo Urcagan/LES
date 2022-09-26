@@ -41,12 +41,13 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" >
-                            <table class="table table-head-fixed text-nowrap" >
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Имя</th>
+                                    <th>Роль</th>
                                     <th>Действия</th>
                                 </tr>
                                 </thead>
@@ -55,6 +56,11 @@
                                     <tr>
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
+                                        @foreach($roles as $id=>$role)
+                                            @if($id==$user->role)
+                                                <td>{{$role}}</td>
+                                            @endif
+                                        @endforeach
                                         <td>
                                             <div class="btn-group  ">
                                                 <button type="button" class="btn btn-default " title="Обзор"
@@ -62,47 +68,25 @@
                                                     <a href="{{route('admin.user.show', $user->id)}}"> <i
                                                             class="fas fa-eye"></i></a>
                                                 </button>
-                                                <button type="button" class="btn  btn-outline-primary" title="Редактировать"
+                                                <button type="button" class="btn  btn-outline-primary"
+                                                        title="Редактировать"
                                                         data-toggle="tooltip">
                                                     <a href="{{route('admin.user.edit', $user->id)}}"><i
                                                             class="fas fa-edit"></i></a>
                                                 </button>
-                                                <!-- Малое модальное окно для удаления-->
-                                                <button type="button" class=" btn  btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
-                                                        title="Удалить" data-toggle="tooltip">
-                                                    <i class="fas fa-trash-alt "></i>
-                                                </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title" id="exampleModalLabel">Удаление</h4>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>Удалить "{{ $user->name }}" ?</h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary"
-                                                                        data-dismiss="modal">Close
-                                                                </button>
-                                                                <form
-                                                                    action="{{route('admin.user.destroy', $user->id)}}"
-                                                                    method="post">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <button type="submit" class="btn btn-danger">
-                                                                        Удалить
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+
+                                                <form
+                                                    action="{{route('admin.user.destroy', $user->id)}}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-outline-primary">
+                                                        <i class="fas fa-trash-alt" role="button"></i>
+                                                    </button>
+                                                </form>
+
+
                                             </div>
                                         </td>
                                     </tr>
