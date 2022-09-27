@@ -26,7 +26,8 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME; // переход на станица после авторизации
+    protected $redirectTo = '/'; // переход на станица после авторизации
 
     /**
      * Create a new controller instance.

@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('home');
 });
 
 // Роуты для админки
@@ -89,4 +89,4 @@ Route::get('/contacts', [ContactController::class, 'contacts'])->name('contact.i
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

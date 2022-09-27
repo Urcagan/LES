@@ -12,8 +12,9 @@
             </ul>
 
             <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
-                <button type="button" class="btn btn-warning">Sign-up</button>
+                <a type="button" class="btn btn-outline-light me-2" href="{{ route('login') }}">Login</a>
+
+                <a class="btn btn-warning" href="{{ route('register') }}">Register</a>
             </div>
         </div>
     </div>
