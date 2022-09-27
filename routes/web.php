@@ -23,18 +23,17 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController');
 });
 
 // Роуты для админки
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController');
     });
     // Роуты для CRUD комплексов
-    Route::group(['namespace'=>'Complex', 'prefix'=>'complex'], function () {
+    Route::group(['namespace' => 'Complex', 'prefix' => 'complex'], function () {
         Route::get('/', 'IndexController')->name('admin.complex.index');
         Route::get('/create', 'CreateController')->name('admin.complex.create');
         Route::post('/', 'StoreController')->name('admin.complex.store');
@@ -45,7 +44,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
     });
 
     // Роуты для админки пользователей
-    Route::group(['namespace'=>'User', 'prefix'=>'users'], function () {
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
         Route::get('/', 'IndexController')->name('admin.user.index');
         Route::get('/create', 'CreateController')->name('admin.user.create');
         Route::post('/', 'StoreController')->name('admin.user.store');
@@ -56,7 +55,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
     });
 
 });
-
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Complex'], function () {

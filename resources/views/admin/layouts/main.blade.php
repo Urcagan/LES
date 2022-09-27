@@ -45,11 +45,15 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-
             <!-- Notifications Dropdown Menu -->
-
+            <form
+                action="{{route('logout')}}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-outline-primary">Выйти </button>
+            </form>
         </ul>
     </nav>
+
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
