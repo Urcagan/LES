@@ -26,4 +26,8 @@ class Plant extends Model
         return $this->belongsTo(Complex::class, 'complex_id', 'id');
     }
 
+    public function units()
+    {
+        return $this->hasMany(Unit::class, 'plant_id', 'id');
+    }
 }

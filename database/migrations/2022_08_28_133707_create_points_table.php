@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string( 'EUDESC', 10);
             $table->integer( 'PVEUHI');
             $table->integer( 'PVEULO');
-            $table->integer('UnitID');
-            $table->foreignId('units_id')->constrained();
+            $table->foreignId('unit_id')->constrained();
 
             $table->softDeletes();
         });

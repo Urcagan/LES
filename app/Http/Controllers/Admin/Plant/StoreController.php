@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Plant;
+namespace App\Http\Controllers\Admin\Plant;
 
 use App\Http\Requests\Admin\Plant\StoreRequest;
 
@@ -13,6 +13,6 @@ class StoreController extends BaseController
 
         $this->service->store($data);
 
-        return redirect()->route('plants.index');
+        return redirect()->route('admin.plants.index');
     }
 }

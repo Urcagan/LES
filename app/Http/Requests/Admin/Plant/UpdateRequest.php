@@ -4,11 +4,11 @@
  * Создаем реквест командой  php artisan make:request Complex/StoreRequest
  */
 
-namespace App\Http\Requests\Plant;
+namespace App\Http\Requests\Admin\Plant;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

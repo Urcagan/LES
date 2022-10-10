@@ -4,7 +4,7 @@
  * Создаем реквест командой  php artisan make:request Complex/StoreRequest
  */
 
-namespace App\Http\Requests\Plant;
+namespace App\Http\Requests\Admin\Unit;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,9 +28,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'NamePlant' => 'string',
+            'NameUnit' => 'required | string',
             'Description' => 'nullable | string',
-            'complex_id' => 'required | numeric',
+            'plant_id' => 'required | numeric',
         ];
     }
 }

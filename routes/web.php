@@ -32,16 +32,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController');
     });
-    // Роуты для CRUD комплексов
-    Route::group(['namespace' => 'Complex', 'prefix' => 'complex'], function () {
-        Route::get('/', 'IndexController')->name('admin.complex.index');
-        Route::get('/create', 'CreateController')->name('admin.complex.create');
-        Route::post('/', 'StoreController')->name('admin.complex.store');
-        Route::get('/{complex}', 'ShowController')->name('admin.complex.show');
-        Route::get('/{complex}/edit', 'EditController')->name('admin.complex.edit');
-        Route::patch('/{complex}', 'UpdateController')->name('admin.complex.update');
-        Route::delete('/{complex}', 'DestroyController')->name('admin.complex.destroy');
-    });
 
     // Роуты для админки пользователей
     Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
@@ -54,6 +44,38 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::delete('/{user}', 'DestroyController')->name('admin.user.destroy');
     });
 
+    // Роуты для CRUD комплексов
+    Route::group(['namespace' => 'Complex', 'prefix' => 'complex'], function () {
+        Route::get('/', 'IndexController')->name('admin.complex.index');
+        Route::get('/create', 'CreateController')->name('admin.complex.create');
+        Route::post('/', 'StoreController')->name('admin.complex.store');
+        Route::get('/{complex}', 'ShowController')->name('admin.complex.show');
+        Route::get('/{complex}/edit', 'EditController')->name('admin.complex.edit');
+        Route::patch('/{complex}', 'UpdateController')->name('admin.complex.update');
+        Route::delete('/{complex}', 'DestroyController')->name('admin.complex.destroy');
+    });
+
+    // Роуты для CRUD установок
+    Route::group(['namespace' => 'Plant', 'prefix' => 'plant'], function () {
+        Route::get('/', 'IndexController')->name('admin.plant.index');
+        Route::get('/create', 'CreateController')->name('admin.plant.create');
+        Route::post('/', 'StoreController')->name('admin.plant.store');
+        Route::get('/{plant}', 'ShowController')->name('admin.plant.show');
+        Route::get('/{plant}/edit', 'EditController')->name('admin.plant.edit');
+        Route::patch('/{plant}', 'UpdateController')->name('admin.plant.update');
+        Route::delete('/{plant}', 'DestroyController')->name('admin.plant.destroy');
+    });
+
+    // Роуты для CRUD агрегатов
+    Route::group(['namespace' => 'Unit', 'prefix' => 'unit'], function () {
+        Route::get('/', 'IndexController')->name('admin.unit.index');
+        Route::get('/create', 'CreateController')->name('admin.unit.create');
+        Route::post('/', 'StoreController')->name('admin.unit.store');
+        Route::get('/{unit}', 'ShowController')->name('admin.unit.show');
+        Route::get('/{unit}/edit', 'EditController')->name('admin.unit.edit');
+        Route::patch('/{unit}', 'UpdateController')->name('admin.unit.update');
+        Route::delete('/{unit}', 'DestroyController')->name('admin.unit.destroy');
+    });
 });
 
 

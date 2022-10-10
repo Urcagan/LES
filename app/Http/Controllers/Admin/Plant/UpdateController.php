@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Plant;
+namespace App\Http\Controllers\Admin\Plant;
 
 use App\Http\Requests\Admin\Plant\UpdateRequest;
 use App\Models\Plant;
@@ -14,6 +14,6 @@ class UpdateController extends BaseController {
 
         $this->service->update($plant, $data);
 
-        return redirect()->route('plants.show', $plant->id);
+        return redirect()->route('admin.plant.show', $plant->id);
     }
 }

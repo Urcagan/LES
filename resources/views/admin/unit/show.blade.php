@@ -5,17 +5,21 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="row ">
-                <div class="col-lg-10 d-flex justify-content-around ">
-                    <h1 class="m-0 text-primary">{{ $complex->NameComplex }}</h1>
+                <div class="col-lg-10 d-flex justify-content-between p-3">
+
+                    <h1 class="m-0 "><a href="{{route('admin.plant.index')}}">{{$plant->NamePlant}}</a> -> {{ $unit->NameUnit }}</h1>
                     <div class="btn-group  ">
+
                         <button type="button" class="btn btn-default" title="Редактировать" data-toggle="tooltip">
-                            <a href="{{route('admin.complex.edit', $complex->id)}}"><i class="fas fa-edit"></i></a>
+                            <a href="{{route('admin.unit.edit', $unit->id)}}"><i class="fas fa-edit"></i></a>
                         </button>
+
                             <!-- Малое модальное окно для удаления-->
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"
                                 title="Удалить" data-toggle="tooltip">
                             <i class="fas fa-trash-alt "></i>
                         </button>
+
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -27,11 +31,11 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                       <h5>Удалить "{{ $complex->NameComplex }}" ?</h5>
+                                       <h5>Удалить "{{ $unit->NameUnit }}" ?</h5>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                        <form action="{{route('admin.complex.destroy', $complex->id)}}" method="post">
+                                        <form action="{{route('admin.unit.destroy', $unit->id)}}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger">Удалить</button>
@@ -41,9 +45,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <!-- /.content-header -->
@@ -57,11 +59,11 @@
                             <tbody>
                             <tr>
                                 <td>ID</td>
-                                <td>{{$complex->id}}</td>
+                                <td>{{$unit->id}}</td>
                             </tr>
                             <tr>
-                                <td>Название</td>
-                                <td>{{ $complex->Description }}</td>
+                                <td>Описание</td>
+                                <td>{{ $unit->Description }}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -70,49 +72,11 @@
                 </div>
                 <!-- /.card -->
             </div>
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Установки входящие в комплекс</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body p-0">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Название</th>
-                                <th>Описание</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($complex->plants as $unit)
-                                <tr>
-                                    <td><a href="{{route('admin.plant.show', $unit->id)}}">{{$unit->NamePlant}}</a></td>
-                                    <td>{{$unit->Description}}</td>
-                                    @endforeach
-                                </tr>
 
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
+
         </section>
         <!-- /.content -->
 
-        <div><a href="{{route('admin.complex.index')}}" class="btn btn-outline-dark mt-3">Назад</a></div>
-        <div><a href="#" class="btn btn-outline-dark mt-3">Редактировать</a>
-        </div>
-        <div>
-            <form action="{{route('admin.complex.destroy', $complex->id)}}" method="post">
-                @csrf
-                @method('delete')
-                <input type="submit" class="btn btn-outline-dark mt-3" value="Удалить" title="Удалить"
-                       data-toggle="tooltip">
-            </form>
-        </div>
     </div>
     <!-- /.content-wrapper -->
 

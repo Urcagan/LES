@@ -22,7 +22,18 @@
                     <p>Комплексы</p>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a href="{{route('admin.plant.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-globe"></i>
+                    <p>Установки</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.unit.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-globe"></i>
+                    <p>Агрегаты</p>
+                </a>
+            </li>
         </ul>
 
     </div>

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string( 'NameUnit', 50)->unique();
             $table->string( 'Description', 120)->nullable();
-            $table->integer('PlantID');
-            $table->foreignId('plants_id')->constrained();
+
+            $table->foreignId('plant_id')->constrained();
 
             $table->softDeletes();
         });
